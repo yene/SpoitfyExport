@@ -18,6 +18,7 @@
 		AE8D99D918D60F0300D30E60 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8D99B818D60F0300D30E60 /* Cocoa.framework */; };
 		AE8D99E118D60F0300D30E60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE8D99DF18D60F0300D30E60 /* InfoPlist.strings */; };
 		AE8D99E318D60F0300D30E60 /* SpotifyExportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8D99E218D60F0300D30E60 /* SpotifyExportTests.m */; };
+		AE8D99ED18D612A200D30E60 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE8D99EC18D612A200D30E60 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		AE8D99DE18D60F0300D30E60 /* SpotifyExportTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpotifyExportTests-Info.plist"; sourceTree = "<group>"; };
 		AE8D99E018D60F0300D30E60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE8D99E218D60F0300D30E60 /* SpotifyExportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotifyExportTests.m; sourceTree = "<group>"; };
+		AE8D99EC18D612A200D30E60 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		AE8D99AC18D60F0300D30E60 = {
 			isa = PBXGroup;
 			children = (
+				AE8D99EC18D612A200D30E60 /* README.md */,
 				AE8D99BE18D60F0300D30E60 /* SpotifyExport */,
 				AE8D99DC18D60F0300D30E60 /* SpotifyExportTests */,
 				AE8D99B718D60F0300D30E60 /* Frameworks */,
@@ -233,6 +236,7 @@
 			files = (
 				AE8D99C318D60F0300D30E60 /* InfoPlist.strings in Resources */,
 				AE8D99D118D60F0300D30E60 /* Images.xcassets in Resources */,
+				AE8D99ED18D612A200D30E60 /* README.md in Resources */,
 				AE8D99C918D60F0300D30E60 /* Credits.rtf in Resources */,
 				AE8D99CF18D60F0300D30E60 /* MainMenu.xib in Resources */,
 			);
