@@ -675,10 +675,10 @@
         <window title="SpotifyExport" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="512" height="710"/>
+            <rect key="contentRect" x="335" y="390" width="567" height="710"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="512" height="710"/>
+                <rect key="frame" x="0.0" y="0.0" width="567" height="710"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4M-Cw-zm7">
@@ -778,7 +778,7 @@ Allowed tags are %artist%, %album%, %song%, %year%, %number% and %disc%. </strin
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OF1-fX-bvH">
-                        <rect key="frame" x="20" y="58" width="472" height="316"/>
+                        <rect key="frame" x="20" y="58" width="527" height="316"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://open.spotify.com/track/1JcwHjETNNbUH0yfrc9w9n" drawsBackground="YES" id="LCb-hj-0h8">
                             <font key="font" metaFont="system"/>
@@ -787,7 +787,7 @@ Allowed tags are %artist%, %album%, %song%, %year%, %number% and %disc%. </strin
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ij3-HX-wLm">
-                        <rect key="frame" x="205" y="13" width="102" height="32"/>
+                        <rect key="frame" x="249" y="13" width="102" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vAK-hI-dGo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -798,21 +798,21 @@ Allowed tags are %artist%, %album%, %song%, %year%, %number% and %disc%. </strin
                         </connections>
                     </button>
                     <scrollView hidden="YES" fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSZ-GL-b6y">
-                        <rect key="frame" x="20" y="20" width="472" height="670"/>
+                        <rect key="frame" x="20" y="20" width="527" height="670"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="Vtz-pr-oja">
-                            <rect key="frame" x="1" y="1" width="455" height="668"/>
+                            <rect key="frame" x="1" y="1" width="510" height="668"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="vsj-hm-uS6">
-                                    <rect key="frame" x="0.0" y="0.0" width="455" height="668"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="510" height="668"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="455" height="668"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <size key="minSize" width="510" height="668"/>
+                                    <size key="maxSize" width="517" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="455" height="668"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <size key="minSize" width="510" height="668"/>
+                                    <size key="maxSize" width="517" height="10000000"/>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -822,7 +822,7 @@ Allowed tags are %artist%, %album%, %song%, %year%, %number% and %disc%. </strin
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="6L3-tn-stH">
-                            <rect key="frame" x="456" y="1" width="15" height="668"/>
+                            <rect key="frame" x="511" y="1" width="15" height="668"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
