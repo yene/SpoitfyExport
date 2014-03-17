@@ -10,4 +10,10 @@
 
 @interface XXXSpotify : NSObject
 
+
+
+
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password;
+
+
 @end

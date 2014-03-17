@@ -10,6 +10,7 @@
 
 NSString *const AuthServer = @"play.spotify.com";
 NSString *const AuthUrl = @"/xhr/json/auth.php";
+NSString *const LandingUrl = @"/xhr/json/auth.php";
 NSString *const UserAgent = @"'Mozilla/5.0 (Chrome/13.37 compatible-ish) spotify-web/1";
 
 @interface XXXSpotify () {
@@ -19,5 +20,16 @@ NSString *const UserAgent = @"'Mozilla/5.0 (Chrome/13.37 compatible-ish) spotify
 
 @implementation XXXSpotify
 
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password;
+{
+  
+  [self makeLandingPageRequest];
+}
+
+- (void)makeLandingPageRequest;
+{
+  NSString *url = [NSString stringWithFormat:@"https://%@%@", AuthServer, LandingUrl];
+  NSLog(@"GET %@", url);
+}
 
 @end

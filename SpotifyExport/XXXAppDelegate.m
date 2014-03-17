@@ -7,6 +7,7 @@
 //
 
 #import "XXXAppDelegate.h"
+#import "XXXSpotify.h"
 
 @implementation XXXAppDelegate
 
@@ -14,6 +15,11 @@
 {
   // Insert code here to initialize your application
   self.destinationPath.URL = [NSURL fileURLWithPath:[@"~/Music" stringByExpandingTildeInPath]];
+  
+  XXXSpotify *spotify = [[XXXSpotify alloc] init];
+  [spotify loginWithUsername:@"yene" password:@"password"];
+  
+  
   
 }
 
