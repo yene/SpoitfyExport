@@ -13,7 +13,7 @@
 
 
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password;
+- (void)loginWithUsername:(NSString *)ausername password:(NSString *)apassword;
 
 
 @end

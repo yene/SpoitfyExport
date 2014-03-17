@@ -15,14 +15,22 @@ NSString *const UserAgent = @"Mozilla/5.0 (Chrome/13.37 compatible-ish) spotify-
 NSString *const SourceUrl = @"https://d3rt1990lpmkn.cloudfront.net";
 
 @interface XXXSpotify () {
-  
+  NSString *csrftoken;
+  NSString *trackingId;
+  NSString *username;
+  NSString *password;
+  NSString *type;
+  NSDictionary *settings;
 }
 @end
 
 @implementation XXXSpotify
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password;
+- (void)loginWithUsername:(NSString *)ausername password:(NSString *)apassword;
 {
+  username = ausername;
+  password = apassword;
+  type = @"sp";
   
   [self makeLandingPageRequest];
 }
@@ -48,7 +56,7 @@ NSString *const SourceUrl = @"https://d3rt1990lpmkn.cloudfront.net";
   }
   
   if (requestError) {
-    NSLog(@"failed to get the landing page");
+    NSLog(@"failed to get the landing page, please check your internet"); // TODO show user dialog
   } else {
     [self getSecret:response];
   }
@@ -57,52 +65,35 @@ NSString *const SourceUrl = @"https://d3rt1990lpmkn.cloudfront.net";
 - (void)getSecret:(NSData *)responseData;
 {
   NSString *bla = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-  NSLog(@"%@", bla);
   NSRange range = [bla rangeOfString:@"csrftoken"];
   range.location += range.length + 3;
   range.length = 32;
-  NSString *csrftoken = [bla substringWithRange:range];
+  csrftoken = [bla substringWithRange:range];
   range = [bla rangeOfString:@"trackingId"];
   range.location += range.length + 3;
   range.length = 40;
-  NSString *trackingId = [bla substringWithRange:range];
+  trackingId = [bla substringWithRange:range];
   
   
   NSString *url = [NSString stringWithFormat:@"https://%@%@", AuthServer, AuthUrl];
-  NSLog(@"GET %@", url);
+  NSLog(@"POST to %@", url);
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
   
   [request setHTTPMethod: @"POST"];
   [request addValue:UserAgent forHTTPHeaderField:@"User-Agent"];
-  [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+  [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"]; //
+  [request setValue:@"https://play.spotify.com/" forHTTPHeaderField:@"Referer"];
   
-  NSDictionary *jsonDict = @{
-                             @"type" : @"sp",
-                             @"username" : @"yene",
-                             @"password" : @"password",
-                             
-                               @"secret" : csrftoken,
-                               @"trackingId" : trackingId,
-                               @"landingURL" : AuthServer,
-                               @"referrer" : @"",
-                               @"cf" : @""
-                               };
+ 
+  //NSString *post =[[NSString alloc] initWithFormat:@"userName=%@&password=%@",userName.text,password.text];
   
-  NSData *jsonInputData = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:nil];
-  NSString *jsonRequest = [[NSString alloc] initWithData:jsonInputData encoding:NSUTF8StringEncoding];
+  NSString *myRequestString = [NSString stringWithFormat:@"type=%@&username=%@&password=%@&secret=%@&trackingId=%@&referrer=&landingURL=%@&cf=&f=contextual&s=direct", type, username, password, csrftoken, trackingId, AuthServer];
   
-  NSLog(@"jsonRequest is %@", jsonRequest);
-  
-  
-  
-  // content type  application/x-www-form-urlencoded; charset=UTF-8
-  // refer https://play.spotify.com/
-  [request setHTTPBody:jsonInputData];
+  NSData *myRequestData = [NSData dataWithBytes: [myRequestString UTF8String] length: [myRequestString length]];
+  [request setHTTPBody:myRequestData];
   
   NSError *requestError;
   NSHTTPURLResponse *urlResponse = nil;
-  
   
   NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
   
@@ -111,22 +102,57 @@ NSString *const SourceUrl = @"https://d3rt1990lpmkn.cloudfront.net";
     return;
   }
   
-  if (requestError) {
-    NSLog(@"failed to get the landing page");
-  } else {
-    
-    
-    NSString *bla = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    
+  if (!requestError) {
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:nil];
     if ([[result objectForKey:@"status"] isEqualToString:@"ERROR"] ) {
       NSLog(@"error: %@", [result objectForKey:@"error"]);
     } else {
-      
+      settings = [result objectForKey:@"config"];
+      [self resolveAP];
     }
     
   }
+}
+
+- (void)resolveAP;
+{
+  NSDictionary *resolver = [settings valueForKeyPath:@"aps.resolver"];
+  NSString *myRequestString = [NSString stringWithFormat:@"client=24:0:0:%@", [settings valueForKeyPath:@"version"]];
+  if ([resolver objectForKey:@"site"] != [NSNull null]) {
+    myRequestString = [NSString stringWithFormat:@"%@&site=%@", myRequestString, [resolver objectForKey:@"site"]];
+  }
   
+  NSString *url = [NSString stringWithFormat:@"http://%@/?%@", [resolver objectForKey:@"hostname"], myRequestString];
+  NSLog(@"GET to %@", url);
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+  
+  [request setHTTPMethod: @"GET"];
+  [request addValue:UserAgent forHTTPHeaderField:@"User-Agent"];
+  [request setValue:@"https://play.spotify.com/" forHTTPHeaderField:@"Referer"];
+  
+  NSError *requestError;
+  NSHTTPURLResponse *urlResponse = nil;
+  
+  NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+  
+  if([urlResponse statusCode] != 200){
+    NSLog(@"Error getting %@, HTTP status code %i", url, [urlResponse statusCode]);
+    return;
+  }
+  
+  if (!requestError) {
+    [self openWebsocketWithData:response];
+    
+  }
+
+}
+
+- (void)openWebsocketWithData:(NSData *)res;
+{
+  NSDictionary *result = [NSJSONSerialization JSONObjectWithData:res options:NSJSONReadingMutableContainers error:nil];
+  
+  NSArray *ap_list =[result objectForKey:@"ap_list"];
+  NSString *url = [NSString stringWithFormat:@"wss://%@/", ap_list[0]];
   
 }
 
