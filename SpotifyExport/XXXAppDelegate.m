@@ -64,7 +64,6 @@
         [self.textView insertText:string];
       });
     }
-
   });
   
 }
@@ -74,6 +73,7 @@
   NSData *data = [fh availableData];
   NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; //NSUTF8StringEncoding or NSASCIIStringEncoding ?
   [self.textView insertText:str];
+  [self.textView scrollRangeToVisible:NSMakeRange(self.textView.string.length, 0)];
 }
 
 - (void)readCompleted:(NSNotification *)notification {
