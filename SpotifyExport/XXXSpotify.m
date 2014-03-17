@@ -7,6 +7,7 @@
 //
 
 #import "XXXSpotify.h"
+#import <SocketRocket/SRWebSocket.h>
 
 NSString *const AuthServer = @"play.spotify.com";
 NSString *const AuthUrl = @"/xhr/json/auth.php";
@@ -21,6 +22,7 @@ NSString *const SourceUrl = @"https://d3rt1990lpmkn.cloudfront.net";
   NSString *password;
   NSString *type;
   NSDictionary *settings;
+  SRWebSocket *webSocket;
 }
 @end
 
@@ -153,6 +155,28 @@ NSString *const SourceUrl = @"https://d3rt1990lpmkn.cloudfront.net";
   
   NSArray *ap_list =[result objectForKey:@"ap_list"];
   NSString *url = [NSString stringWithFormat:@"wss://%@/", ap_list[0]];
+  
+  webSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:url]];
+  webSocket.delegate = self;
+  
+  //[webSocket open];
+  
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
+{
+  
+}
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket;
+{
+  
+}
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
+{
+  
+}
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
+{
   
 }
 
