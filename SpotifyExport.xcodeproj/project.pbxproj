@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE415AE818D721FB00C2C561 /* XXXSpotify.m in Sources */ = {isa = PBXBuildFile; fileRef = AE415AE718D721FB00C2C561 /* XXXSpotify.m */; };
+		AE415AF818D7245D00C2C561 /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE415AF318D7242D00C2C561 /* SocketRocket.framework */; };
+		AE415AFA18D7248300C2C561 /* SocketRocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE415AF318D7242D00C2C561 /* SocketRocket.framework */; };
 		AE8D99B918D60F0300D30E60 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8D99B818D60F0300D30E60 /* Cocoa.framework */; };
 		AE8D99C318D60F0300D30E60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE8D99C118D60F0300D30E60 /* InfoPlist.strings */; };
 		AE8D99C518D60F0300D30E60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8D99C418D60F0300D30E60 /* main.m */; };
@@ -22,6 +25,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AE415AF018D7242D00C2C561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6B2082D1450F597009315AF;
+			remoteInfo = SocketRocket;
+		};
+		AE415AF218D7242D00C2C561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F668C880153E91210044DBAC;
+			remoteInfo = SocketRocketOSX;
+		};
+		AE415AF418D7242D00C2C561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6BDA802145900D200FE3253;
+			remoteInfo = SRWebSocketTests;
+		};
+		AE415AF618D7242D00C2C561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F62417E314D52F3C003CE997;
+			remoteInfo = TestChat;
+		};
 		AE8D99DA18D60F0300D30E60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8D99AD18D60F0300D30E60 /* Project object */;
@@ -31,7 +62,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AE415AF918D7247A00C2C561 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE415AFA18D7248300C2C561 /* SocketRocket.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AE415AE618D721FB00C2C561 /* XXXSpotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXXSpotify.h; sourceTree = "<group>"; };
+		AE415AE718D721FB00C2C561 /* XXXSpotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXSpotify.m; sourceTree = "<group>"; };
+		AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketRocket.xcodeproj; path = SocketRocket/SocketRocket.xcodeproj; sourceTree = "<group>"; };
 		AE8D99B518D60F0300D30E60 /* SpotifyExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8D99B818D60F0300D30E60 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AE8D99BB18D60F0300D30E60 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -59,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE415AF818D7245D00C2C561 /* SocketRocket.framework in Frameworks */,
 				AE8D99B918D60F0300D30E60 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,9 +123,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE415AE518D721AE00C2C561 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AE415AE618D721FB00C2C561 /* XXXSpotify.h */,
+				AE415AE718D721FB00C2C561 /* XXXSpotify.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		AE415AEA18D7242D00C2C561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE415AF118D7242D00C2C561 /* libSocketRocket.a */,
+				AE415AF318D7242D00C2C561 /* SocketRocket.framework */,
+				AE415AF518D7242D00C2C561 /* SRWebSocketTests.octest */,
+				AE415AF718D7242D00C2C561 /* TestChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AE8D99AC18D60F0300D30E60 = {
 			isa = PBXGroup;
 			children = (
+				AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */,
 				AE8D99EC18D612A200D30E60 /* README.md */,
 				AE8D99BE18D60F0300D30E60 /* SpotifyExport */,
 				AE8D99DC18D60F0300D30E60 /* SpotifyExportTests */,
@@ -118,6 +187,7 @@
 		AE8D99BE18D60F0300D30E60 /* SpotifyExport */ = {
 			isa = PBXGroup;
 			children = (
+				AE415AE518D721AE00C2C561 /* Classes */,
 				AE8D99CA18D60F0300D30E60 /* XXXAppDelegate.h */,
 				AE8D99CB18D60F0300D30E60 /* XXXAppDelegate.m */,
 				AE8D99CD18D60F0300D30E60 /* MainMenu.xib */,
@@ -167,6 +237,7 @@
 				AE8D99B118D60F0300D30E60 /* Sources */,
 				AE8D99B218D60F0300D30E60 /* Frameworks */,
 				AE8D99B318D60F0300D30E60 /* Resources */,
+				AE415AF918D7247A00C2C561 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -221,6 +292,12 @@
 			mainGroup = AE8D99AC18D60F0300D30E60;
 			productRefGroup = AE8D99B618D60F0300D30E60 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AE415AEA18D7242D00C2C561 /* Products */;
+					ProjectRef = AE415AE918D7242D00C2C561 /* SocketRocket.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AE8D99B418D60F0300D30E60 /* SpotifyExport */,
@@ -228,6 +305,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AE415AF118D7242D00C2C561 /* libSocketRocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSocketRocket.a;
+			remoteRef = AE415AF018D7242D00C2C561 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AE415AF318D7242D00C2C561 /* SocketRocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SocketRocket.framework;
+			remoteRef = AE415AF218D7242D00C2C561 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AE415AF518D7242D00C2C561 /* SRWebSocketTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SRWebSocketTests.octest;
+			remoteRef = AE415AF418D7242D00C2C561 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AE415AF718D7242D00C2C561 /* TestChat.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestChat.app;
+			remoteRef = AE415AF618D7242D00C2C561 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AE8D99B318D60F0300D30E60 /* Resources */ = {
@@ -259,6 +367,7 @@
 			files = (
 				AE8D99C518D60F0300D30E60 /* main.m in Sources */,
 				AE8D99CC18D60F0300D30E60 /* XXXAppDelegate.m in Sources */,
+				AE415AE818D721FB00C2C561 /* XXXSpotify.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +580,7 @@
 				AE8D99E818D60F0300D30E60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE8D99E918D60F0300D30E60 /* Build configuration list for PBXNativeTarget "SpotifyExportTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +589,7 @@
 				AE8D99EB18D60F0300D30E60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
